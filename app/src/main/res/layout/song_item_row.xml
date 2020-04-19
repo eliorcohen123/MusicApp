@@ -37,13 +37,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="שם השיר:"
-                android:textColor="@color/colorBrown" />
+                android:textColor="@color/colorBrown"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/songName"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:textColor="@color/colorWhite" />
+                android:textColor="@color/colorWhite"
+                android:textSize="30sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -51,5 +53,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
-        android:orientation="vertical"/>
+        android:orientation="vertical" />
 </LinearLayout>

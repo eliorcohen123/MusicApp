@@ -27,7 +27,7 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
         this.dataList = dataList;
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener  {
+    class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
 
         private View mView;
         private TextView songName;
@@ -77,13 +77,18 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
     }
 
     @Override
-    public void onBindViewHolder(CustomViewHolder holder, int position) {
+    public void onBindViewHolder(CustomViewHolder holder, final int position) {
         final SongModel current = dataList.get(position);
         holder.songName.setText(current.getSongName());
 
         holder.linearLayout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for (int i = 0; i < 5; i++) {
+                    if (dataList.get(i).getPlaySong().isPlaying()) {
+                        dataList.get(i).getPlaySong().pause();
+                    }
+                }
                 current.getPlaySong().start();
             }
         });
