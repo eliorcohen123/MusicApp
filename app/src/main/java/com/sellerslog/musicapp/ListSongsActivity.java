@@ -24,7 +24,8 @@ public class ListSongsActivity extends AppCompatActivity {
             albi_maak, lomedet_lalechet, loveshet_hiuch, tomru_lo, yesh_li_otha,
             egrof, gentleman, haim_sheli, hazman_shelanu, kshetavo,
             at_hasera_li, ein_yoter_moadonim, einaim, kapiyot, kshenigmeret_hasufa,
-            aharei_kol_hashanim, katavti_alaih_shir, maim_shkufim, shigra_mefoeret, titen_la_prahim;
+            aharei_kol_hashanim, katavti_alaih_shir, maim_shkufim, shigra_mefoeret, titen_la_prahim,
+            ata_totah, hofshia, lama_li, shev, shtei_dakot;
     private String song_data;
     private TextView biography;
 
@@ -109,6 +110,13 @@ public class ListSongsActivity extends AppCompatActivity {
         shigra_mefoeret = MediaPlayer.create(ListSongsActivity.this, R.raw.shigra_mefoeret);
         titen_la_prahim = MediaPlayer.create(ListSongsActivity.this, R.raw.titen_la_prahim);
 
+        // שרית חדד
+        ata_totah = MediaPlayer.create(ListSongsActivity.this, R.raw.ata_totah);
+        hofshia = MediaPlayer.create(ListSongsActivity.this, R.raw.hofshia);
+        lama_li = MediaPlayer.create(ListSongsActivity.this, R.raw.lama_li);
+        shev = MediaPlayer.create(ListSongsActivity.this, R.raw.shev);
+        shtei_dakot = MediaPlayer.create(ListSongsActivity.this, R.raw.shtei_dakot);
+
         mSongList.clear();
         if (song_data.equals("1")) {
             biography.setText("אייל גולן נולד ב-12 באפריל 1971 הוא זמר ישראלי, מהזמרים המצליחים בישראל. הוא גם בעליו של מועדון הכדורגל הפועל מרמורק מרחובות.\n" +
@@ -162,8 +170,8 @@ public class ListSongsActivity extends AppCompatActivity {
                     "מים שקופים", maim_shkufim, "שגרה מפוארת", shigra_mefoeret, "תתן לה פרחים", titen_la_prahim);
         } else if (song_data.equals("10")) {
             biography.setText("שרית חדד, נולדה ב-20 בספטמבר 1978 היא זמרת-יוצרת, מלחינה ומוזיקאית ישראלית, חדד נחשבת לאחת מהזמרות המצליחות והמשפיעות ביותר בישראל כאשר רבים משיריה היו ללהיטים וחלקם אף לנכסי צאן ברזל במוזיקה הישראלית (בניהם: \"הייתי בגן עדן\" ו\"כשהלב בוכה\"), היא פורצת דרך במוזיקה המזרחית, זכתה ארבע פעמים בתואר \"זמרת השנה\" וכמו כן, זכתה בתואר \"זמרת העשור\" בעשור הראשון של המאה ה-21. נציגת ישראל באירוויזיון 2002.\n");
-            initAddSongs(mSongList, "את חסרה לי", at_hasera_li, "אין יותר מועדונים", ein_yoter_moadonim,
-                    "עיניים", einaim, "כפיות", kapiyot, "כשנגמרת הסופה", kshenigmeret_hasufa);
+            initAddSongs(mSongList, "אתה תותח", ata_totah, "חופשיה", hofshia,
+                    "למה לי", lama_li, "שב", shev, "שתי דקות", shtei_dakot);
         }
     }
 
