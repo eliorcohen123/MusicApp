@@ -20,6 +20,7 @@ public class ListSongsActivity extends AppCompatActivity {
             hamahshavot_horgot_oti, hasheket_shel_shabbat, holehet_yehefa, lakaht_et_hamaftehot, toda_lah,
             hagoral_haze, mabul, mazal_moznaim, sam_tabaat_aleiha, terminal3,
             ahi, erev_tov, esh, kama_ahava, rak_shelah,
+            barcelona, karamela, layla_besinay, simanei_hazman, zikukim,
             at_hasera_li, ein_yoter_moadonim, einaim, kapiyot, kshenigmeret_hasufa;
     private String song_data;
     private TextView biography;
@@ -70,6 +71,13 @@ public class ListSongsActivity extends AppCompatActivity {
         kama_ahava = MediaPlayer.create(ListSongsActivity.this, R.raw.kama_ahava);
         rak_shelah = MediaPlayer.create(ListSongsActivity.this, R.raw.rak_shelah);
 
+        // משה פרץ
+        barcelona = MediaPlayer.create(ListSongsActivity.this, R.raw.barcelona);
+        karamela = MediaPlayer.create(ListSongsActivity.this, R.raw.karamela);
+        layla_besinay = MediaPlayer.create(ListSongsActivity.this, R.raw.layla_besinay);
+        simanei_hazman = MediaPlayer.create(ListSongsActivity.this, R.raw.simanei_hazman);
+        zikukim = MediaPlayer.create(ListSongsActivity.this, R.raw.zikukim);
+
         // עדן חסון
         at_hasera_li = MediaPlayer.create(ListSongsActivity.this, R.raw.at_hasera_li);
         ein_yoter_moadonim = MediaPlayer.create(ListSongsActivity.this, R.raw.ein_yoter_moadonim);
@@ -112,8 +120,8 @@ public class ListSongsActivity extends AppCompatActivity {
             biography.setText("נסרין ברכה קדרי נולדה ב-2 בספטמבר 1986 היא זמרת ערבייה-ישראלית, שהתגיירה. קדרי זוכת העונה השנייה של תוכנית המציאות המוזיקלית \"אייל גולן קורא לך\".\n" +
                     "קדרי נולדה למשפחה ערבית מוסלמית בלוד, וגדלה בחיפה.\n" +
                     "בשנת 2012 השתתפה קדרי בעונתה השנייה של תוכנית המציאות, \"אייל גולן קורא לך\" בערוץ 24, שם בין היתר ביצעה את השירים: \"לילות בבית\" (של זהבה בן), \"כשהלב בוכה\" (של שרית חדד), \"אהבה אסורה\" (של זהבה בן), וזכתה בה במקום הראשון.\n");
-            initAddSongs(mSongList, "את חסרה לי", at_hasera_li, "אין יותר מועדונים", ein_yoter_moadonim,
-                    "עיניים", einaim, "כפיות", kapiyot, "כשנגמרת הסופה", kshenigmeret_hasufa);
+            initAddSongs(mSongList, "ברצלונה", barcelona, "קרמלה", karamela,
+                    "לילה בסיני", layla_besinay, "סימני הזמן", simanei_hazman, "זיקוקים", zikukim);
         } else if (song_data.equals("7")) {
             biography.setText("עדן פסיה בן זקן (נולדה ב-8 ביוני 1994) היא זמרת ישראלית. התפרסמה בעקבות השתתפותה בעונתה הראשונה של תוכנית הטלוויזיה \"אקס פקטור ישראל\", בה הגיעה למקום השני. בן זקן הייתה גם שופטת אורחת בעונה השלישית.\n" +
                     "אלבומה הראשון, מלכת השושנים, קיבל מעמד של אלבום פלטינה כפולה וזיכה אותה בתואר \"זמרת השנה\" לשנת 2015, במצעד השנתי שנערך בשיתוף פעולה בין מאקו, ערוץ 24 ותחנות רדיו אזוריות. בשנת 2017, היא זכתה שוב בתואר, גם במצעד השנתי של רשת כאן גימל בקול ישראל וגם בתואר \"אשת השנה\" במצעד השנתי של גלגלצ לשנים תשע\"ז ותשע\"ח. בשנת 2018, זכתה במצעד השנתי של מאקו, בתואר \"זמרת השנה\", זו היא הפעם השלישית שבן זקן זוכה ברציפות.\n");
