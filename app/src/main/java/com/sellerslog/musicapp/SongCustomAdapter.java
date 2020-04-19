@@ -2,10 +2,7 @@ package com.sellerslog.musicapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
@@ -30,11 +27,11 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
         this.dataList = dataList;
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
+    class CustomViewHolder extends RecyclerView.ViewHolder {
 
         private View mView;
         private TextView songName, singerName, duration;
-        private ImageView image, imagePlay;
+        private ImageView image, imagePlay, imageAdd;
         private LinearLayout linearLayout1;
 
         CustomViewHolder(View itemView) {
@@ -47,37 +44,10 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
             duration = mView.findViewById(R.id.duration);
             image = mView.findViewById(R.id.image);
             imagePlay = mView.findViewById(R.id.imagePlay);
+            imageAdd = mView.findViewById(R.id.imageAdd);
             linearLayout1 = mView.findViewById(R.id.linear1);
 
-            mView.setOnCreateContextMenuListener(this);
         }
-
-        @Override
-        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-            menu.setHeaderTitle("בחר פעולה");
-            MenuItem add = menu.add(Menu.NONE, 1, 1, "הוספה למועדפים");
-
-            add.setOnMenuItemClickListener(onChange);
-        }
-
-        private final MenuItem.OnMenuItemClickListener onChange = new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                SongModel current = dataList.get(getAdapterPosition());
-                switch (item.getItemId()) {
-                    case 1:
-                        songDBHelper = new SongDBHelper(context);
-                        songDBHelper.addSong(current.getSingerName(), current.getSongName(), current.getSongImage());
-
-                        stopMusic();
-
-                        Intent intent = new Intent(context, FavoritesActivity.class);
-                        context.startActivity(intent);
-                        break;
-                }
-                return false;
-            }
-        };
     }
 
     @Override
@@ -101,7 +71,7 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
 
         holder.imagePlay.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_play_arrow_white_24dp));
 
-        holder.linearLayout1.setOnClickListener(new View.OnClickListener() {
+        holder.imagePlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (current.getPlaySong().isPlaying()) {
@@ -111,6 +81,19 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
                     current.getPlaySong().start();
                     holder.imagePlay.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_stop_white_24dp));
                 }
+            }
+        });
+
+        holder.imageAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                songDBHelper = new SongDBHelper(context);
+                songDBHelper.addSong(current.getSingerName(), current.getSongName(), current.getSongImage());
+
+                stopMusic();
+
+                Intent intent = new Intent(context, FavoritesActivity.class);
+                context.startActivity(intent);
             }
         });
 

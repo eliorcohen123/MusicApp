@@ -70,6 +70,12 @@
                     android:id="@+id/imagePlay"
                     android:layout_width="60dp"
                     android:layout_height="60dp" />
+
+                <ImageView
+                    android:id="@+id/imageAdd"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_add_white_24dp" />
             </LinearLayout>
 
             <TextView
