@@ -22,7 +22,9 @@ public class ListSongsActivity extends AppCompatActivity {
             ahi, erev_tov, esh, kama_ahava, rak_shelah,
             barcelona, karamela, layla_besinay, simanei_hazman, zikukim,
             albi_maak, lomedet_lalechet, loveshet_hiuch, tomru_lo, yesh_li_otha,
-            at_hasera_li, ein_yoter_moadonim, einaim, kapiyot, kshenigmeret_hasufa;
+            egrof, gentleman, haim_sheli, hazman_shelanu, kshetavo,
+            at_hasera_li, ein_yoter_moadonim, einaim, kapiyot, kshenigmeret_hasufa,
+            aharei_kol_hashanim, katavti_alaih_shir, maim_shkufim, shigra_mefoeret, titen_la_prahim;
     private String song_data;
     private TextView biography;
 
@@ -86,12 +88,26 @@ public class ListSongsActivity extends AppCompatActivity {
         tomru_lo = MediaPlayer.create(ListSongsActivity.this, R.raw.tomru_lo);
         yesh_li_otha = MediaPlayer.create(ListSongsActivity.this, R.raw.yesh_li_otha);
 
+        // עדן בן זקן
+        egrof = MediaPlayer.create(ListSongsActivity.this, R.raw.egrof);
+        gentleman = MediaPlayer.create(ListSongsActivity.this, R.raw.gentleman);
+        haim_sheli = MediaPlayer.create(ListSongsActivity.this, R.raw.haim_sheli);
+        hazman_shelanu = MediaPlayer.create(ListSongsActivity.this, R.raw.hazman_shelanu);
+        kshetavo = MediaPlayer.create(ListSongsActivity.this, R.raw.kshetavo);
+
         // עדן חסון
         at_hasera_li = MediaPlayer.create(ListSongsActivity.this, R.raw.at_hasera_li);
         ein_yoter_moadonim = MediaPlayer.create(ListSongsActivity.this, R.raw.ein_yoter_moadonim);
         einaim = MediaPlayer.create(ListSongsActivity.this, R.raw.einaim);
         kapiyot = MediaPlayer.create(ListSongsActivity.this, R.raw.kapiyot);
         kshenigmeret_hasufa = MediaPlayer.create(ListSongsActivity.this, R.raw.kshenigmeret_hasufa);
+
+        // עומר אדם
+        aharei_kol_hashanim = MediaPlayer.create(ListSongsActivity.this, R.raw.aharei_kol_hashanim);
+        katavti_alaih_shir = MediaPlayer.create(ListSongsActivity.this, R.raw.katavti_alaih_shir);
+        maim_shkufim = MediaPlayer.create(ListSongsActivity.this, R.raw.maim_shkufim);
+        shigra_mefoeret = MediaPlayer.create(ListSongsActivity.this, R.raw.shigra_mefoeret);
+        titen_la_prahim = MediaPlayer.create(ListSongsActivity.this, R.raw.titen_la_prahim);
 
         mSongList.clear();
         if (song_data.equals("1")) {
@@ -133,8 +149,8 @@ public class ListSongsActivity extends AppCompatActivity {
         } else if (song_data.equals("7")) {
             biography.setText("עדן פסיה בן זקן (נולדה ב-8 ביוני 1994) היא זמרת ישראלית. התפרסמה בעקבות השתתפותה בעונתה הראשונה של תוכנית הטלוויזיה \"אקס פקטור ישראל\", בה הגיעה למקום השני. בן זקן הייתה גם שופטת אורחת בעונה השלישית.\n" +
                     "אלבומה הראשון, מלכת השושנים, קיבל מעמד של אלבום פלטינה כפולה וזיכה אותה בתואר \"זמרת השנה\" לשנת 2015, במצעד השנתי שנערך בשיתוף פעולה בין מאקו, ערוץ 24 ותחנות רדיו אזוריות. בשנת 2017, היא זכתה שוב בתואר, גם במצעד השנתי של רשת כאן גימל בקול ישראל וגם בתואר \"אשת השנה\" במצעד השנתי של גלגלצ לשנים תשע\"ז ותשע\"ח. בשנת 2018, זכתה במצעד השנתי של מאקו, בתואר \"זמרת השנה\", זו היא הפעם השלישית שבן זקן זוכה ברציפות.\n");
-            initAddSongs(mSongList, "את חסרה לי", at_hasera_li, "אין יותר מועדונים", ein_yoter_moadonim,
-                    "עיניים", einaim, "כפיות", kapiyot, "כשנגמרת הסופה", kshenigmeret_hasufa);
+            initAddSongs(mSongList, "אגרוף", egrof, "ג'נטלמן", gentleman,
+                    "חיים שלי", haim_sheli, "הזמן שלנו", hazman_shelanu, "כשתבוא", kshetavo);
         } else if (song_data.equals("8")) {
             biography.setText("עדן חסון נולד ב-1994 בפרדס חנה לאסתר, סייעת לגננת, וליורם, נהג משאית. גדל במשפחה דתית. בתקופת שירותו הצבאי שירת בבסיס חיל האוויר במצפה רמון, שם היה חלק מכיתת כוננות. את דרכו המוזיקלית החל בכתיבה ובהלחנה של שירים לזמרים כמו פאר טסי, עדן בן זקן ואיתי לוי.");
             initAddSongs(mSongList, "את חסרה לי", at_hasera_li, "אין יותר מועדונים", ein_yoter_moadonim,
@@ -142,8 +158,8 @@ public class ListSongsActivity extends AppCompatActivity {
         } else if (song_data.equals("9")) {
             biography.setText("עומר אדם נולד ב22 באוקטובר 1993 בקרוליינה הצפונית שבארצות הברית בגיל שלוש חזר אדם עם משפחתו לישראל. התגורר במושב משמר השבעה עד 2017. בשנת 2005 השתתף בתחרות השירים \"שיר נולד\", כששר לצדו של טל מוסרי את השיר \"ילד פלא\".\n" +
                     "אביו, רס\"ן יניב אדם, שימש סגן מפקד יחידת שלדג וסמג\"ד של גדוד הצנחנים 202. בני משפחתו שמוצאה קווקזי מצד האב, ואשכנזי מצד אמו.\n");
-            initAddSongs(mSongList, "את חסרה לי", at_hasera_li, "אין יותר מועדונים", ein_yoter_moadonim,
-                    "עיניים", einaim, "כפיות", kapiyot, "כשנגמרת הסופה", kshenigmeret_hasufa);
+            initAddSongs(mSongList, "אחרי כל השנים", aharei_kol_hashanim, "כתבתי עליך שיר", katavti_alaih_shir,
+                    "מים שקופים", maim_shkufim, "שגרה מפוארת", shigra_mefoeret, "תתן לה פרחים", titen_la_prahim);
         } else if (song_data.equals("10")) {
             biography.setText("שרית חדד, נולדה ב-20 בספטמבר 1978 היא זמרת-יוצרת, מלחינה ומוזיקאית ישראלית, חדד נחשבת לאחת מהזמרות המצליחות והמשפיעות ביותר בישראל כאשר רבים משיריה היו ללהיטים וחלקם אף לנכסי צאן ברזל במוזיקה הישראלית (בניהם: \"הייתי בגן עדן\" ו\"כשהלב בוכה\"), היא פורצת דרך במוזיקה המזרחית, זכתה ארבע פעמים בתואר \"זמרת השנה\" וכמו כן, זכתה בתואר \"זמרת העשור\" בעשור הראשון של המאה ה-21. נציגת ישראל באירוויזיון 2002.\n");
             initAddSongs(mSongList, "את חסרה לי", at_hasera_li, "אין יותר מועדונים", ein_yoter_moadonim,
