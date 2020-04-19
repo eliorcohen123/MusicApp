@@ -21,6 +21,7 @@ public class ListSongsActivity extends AppCompatActivity {
             hagoral_haze, mabul, mazal_moznaim, sam_tabaat_aleiha, terminal3,
             ahi, erev_tov, esh, kama_ahava, rak_shelah,
             barcelona, karamela, layla_besinay, simanei_hazman, zikukim,
+            albi_maak, lomedet_lalechet, loveshet_hiuch, tomru_lo, yesh_li_otha,
             at_hasera_li, ein_yoter_moadonim, einaim, kapiyot, kshenigmeret_hasufa;
     private String song_data;
     private TextView biography;
@@ -78,6 +79,13 @@ public class ListSongsActivity extends AppCompatActivity {
         simanei_hazman = MediaPlayer.create(ListSongsActivity.this, R.raw.simanei_hazman);
         zikukim = MediaPlayer.create(ListSongsActivity.this, R.raw.zikukim);
 
+        // נסרין קדרי
+        albi_maak = MediaPlayer.create(ListSongsActivity.this, R.raw.albi_maak);
+        lomedet_lalechet = MediaPlayer.create(ListSongsActivity.this, R.raw.lomedet_lalechet);
+        loveshet_hiuch = MediaPlayer.create(ListSongsActivity.this, R.raw.loveshet_hiuch);
+        tomru_lo = MediaPlayer.create(ListSongsActivity.this, R.raw.tomru_lo);
+        yesh_li_otha = MediaPlayer.create(ListSongsActivity.this, R.raw.yesh_li_otha);
+
         // עדן חסון
         at_hasera_li = MediaPlayer.create(ListSongsActivity.this, R.raw.at_hasera_li);
         ein_yoter_moadonim = MediaPlayer.create(ListSongsActivity.this, R.raw.ein_yoter_moadonim);
@@ -114,14 +122,14 @@ public class ListSongsActivity extends AppCompatActivity {
         } else if (song_data.equals("5")) {
             biography.setText("פרץ נולד ב10 במאי 1983 וגדל בטבריה. \n" +
                     "עוד בילדותו החל לשיר כפייטן בבית הכנסת \"יעקב גז\" בטבריה, הסמוך לבית הוריו. הוא התגייס לצה\"ל בנובמבר 2001 לחיל החימוש ולאחר מכן התקבל ללהקה צבאית. כאשר עלה לשיר את \"שיר למעלות\" בטקס יום הזיכרון לחללי מערכות ישראל שנערך בבסיסו, קיבל משובים חיוביים, וקצין החינוך סייע בידו לגשת לבחינות הקבלה ללהקה צבאית. ביולי 2002 הוא עבר את בחינות הקבלה בהצלחה והתקבל לצוות הווי פיקוד צפון, ובמקביל החל לעבוד על הפקת אלבום משלו.\n");
-            initAddSongs(mSongList, "את חסרה לי", at_hasera_li, "אין יותר מועדונים", ein_yoter_moadonim,
-                    "עיניים", einaim, "כפיות", kapiyot, "כשנגמרת הסופה", kshenigmeret_hasufa);
+            initAddSongs(mSongList, "ברצלונה", barcelona, "קרמלה", karamela,
+                    "לילה בסיני", layla_besinay, "סימני הזמן", simanei_hazman, "זיקוקים", zikukim);
         } else if (song_data.equals("6")) {
             biography.setText("נסרין ברכה קדרי נולדה ב-2 בספטמבר 1986 היא זמרת ערבייה-ישראלית, שהתגיירה. קדרי זוכת העונה השנייה של תוכנית המציאות המוזיקלית \"אייל גולן קורא לך\".\n" +
                     "קדרי נולדה למשפחה ערבית מוסלמית בלוד, וגדלה בחיפה.\n" +
                     "בשנת 2012 השתתפה קדרי בעונתה השנייה של תוכנית המציאות, \"אייל גולן קורא לך\" בערוץ 24, שם בין היתר ביצעה את השירים: \"לילות בבית\" (של זהבה בן), \"כשהלב בוכה\" (של שרית חדד), \"אהבה אסורה\" (של זהבה בן), וזכתה בה במקום הראשון.\n");
-            initAddSongs(mSongList, "ברצלונה", barcelona, "קרמלה", karamela,
-                    "לילה בסיני", layla_besinay, "סימני הזמן", simanei_hazman, "זיקוקים", zikukim);
+            initAddSongs(mSongList, "אלבי מעאק", albi_maak, "לומדת ללכת", lomedet_lalechet,
+                    "לובשת חיוך", loveshet_hiuch, "תאמרו לו", tomru_lo, "יש לי אותך", yesh_li_otha);
         } else if (song_data.equals("7")) {
             biography.setText("עדן פסיה בן זקן (נולדה ב-8 ביוני 1994) היא זמרת ישראלית. התפרסמה בעקבות השתתפותה בעונתה הראשונה של תוכנית הטלוויזיה \"אקס פקטור ישראל\", בה הגיעה למקום השני. בן זקן הייתה גם שופטת אורחת בעונה השלישית.\n" +
                     "אלבומה הראשון, מלכת השושנים, קיבל מעמד של אלבום פלטינה כפולה וזיכה אותה בתואר \"זמרת השנה\" לשנת 2015, במצעד השנתי שנערך בשיתוף פעולה בין מאקו, ערוץ 24 ותחנות רדיו אזוריות. בשנת 2017, היא זכתה שוב בתואר, גם במצעד השנתי של רשת כאן גימל בקול ישראל וגם בתואר \"אשת השנה\" במצעד השנתי של גלגלצ לשנים תשע\"ז ותשע\"ח. בשנת 2018, זכתה במצעד השנתי של מאקו, בתואר \"זמרת השנה\", זו היא הפעם השלישית שבן זקן זוכה ברציפות.\n");
