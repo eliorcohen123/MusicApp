@@ -17,6 +17,7 @@ public class ListSongsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ItemDecoration itemDecoration;
     private MediaPlayer hozer_habaita, im_rak_haiit_yodaat, mikan_vead_haneztah, omed_kan_levadi, shavui_laahava,
+            hamahshavot_horgot_oti, hasheket_shel_shabbat, holehet_yehefa, lakaht_et_hamaftehot, toda_lah,
             at_hasera_li, ein_yoter_moadonim, einaim, kapiyot, kshenigmeret_hasufa;
     private String song_data;
     private TextView biography;
@@ -46,6 +47,13 @@ public class ListSongsActivity extends AppCompatActivity {
         omed_kan_levadi = MediaPlayer.create(ListSongsActivity.this, R.raw.omed_kan_levadi);
         shavui_laahava = MediaPlayer.create(ListSongsActivity.this, R.raw.shavui_laahava);
 
+        // איתי לוי
+        hamahshavot_horgot_oti = MediaPlayer.create(ListSongsActivity.this, R.raw.hamahshavot_horgot_oti);
+        hasheket_shel_shabbat = MediaPlayer.create(ListSongsActivity.this, R.raw.hasheket_shel_shabbat);
+        holehet_yehefa = MediaPlayer.create(ListSongsActivity.this, R.raw.holehet_yehefa);
+        lakaht_et_hamaftehot = MediaPlayer.create(ListSongsActivity.this, R.raw.lakaht_et_hamaftehot);
+        toda_lah = MediaPlayer.create(ListSongsActivity.this, R.raw.toda_lah);
+
         // עדן חסון
         at_hasera_li = MediaPlayer.create(ListSongsActivity.this, R.raw.at_hasera_li);
         ein_yoter_moadonim = MediaPlayer.create(ListSongsActivity.this, R.raw.ein_yoter_moadonim);
@@ -60,9 +68,12 @@ public class ListSongsActivity extends AppCompatActivity {
             initAddSongs(mSongList, "חוזר הביתה", hozer_habaita, "אם רק היית יודעת", im_rak_haiit_yodaat,
                     "מכאן ועד הנצח", mikan_vead_haneztah, "עומד כאן לבדי", omed_kan_levadi, "שבוי לאהבה", shavui_laahava);
         } else if (song_data.equals("2")) {
-            biography.setText("עדן חסון נולד ב-1994 בפרדס חנה לאסתר, סייעת לגננת, וליורם, נהג משאית. גדל במשפחה דתית. בתקופת שירותו הצבאי שירת בבסיס חיל האוויר במצפה רמון, שם היה חלק מכיתת כוננות. את דרכו המוזיקלית החל בכתיבה ובהלחנה של שירים לזמרים כמו פאר טסי, עדן בן זקן ואיתי לוי.");
-            initAddSongs(mSongList, "את חסרה לי", at_hasera_li, "אין יותר מועדונים", ein_yoter_moadonim,
-                    "עיניים", einaim, "כפיות", kapiyot, "כשנגמרת הסופה", kshenigmeret_hasufa);
+            biography.setText("איתי לוי נולד ב25 בינואר 1988. \n" +
+                    "איתי לוי נולד בגן יבנה וגדל בשכונת שעריים שברחובות. כשהיה בן 16, אביו נפטר מסרטן הריאות. \n" +
+                    "אמו לקתה בארבעה אירועים מוחיים, שהותירו אותה מאז בעלת מוגבלות סיעודית.\n" +
+                    "את שירותו בצה\"ל עשה כעובד רס\"ר בבית הספר לצניחה.\n");
+            initAddSongs(mSongList, "המחשבות הורגות אותי", hamahshavot_horgot_oti, "השקט של שבת", hasheket_shel_shabbat,
+                    "הולכת יחפה", holehet_yehefa, "לקחת את המפתחות", lakaht_et_hamaftehot, "תודה לך", toda_lah);
         } else if (song_data.equals("3")) {
             biography.setText("דודו אהרון נולד ב-23 בדצמבר 1984 הוא זמר-יוצר ישראלי.\n" +
                     "אהרון נחשב לאחד מן הזמרים הבולטים בישראל במוזיקה המזרחית החל מהעשור הראשון של המאה ה-21. הוא מוערך הן כזמר והן בזכות השירים שהוא כותב ומלחין לזמרים אחרים הנמנים עם ז'אנר המוזיקה הים-תיכונית. הוא הוציא את אלבומו הראשון \"אהבה ראשונה\" בשנת 2007, התפרסם במהרה וצבר קהל מעריצים גדול.\n");
@@ -93,10 +104,7 @@ public class ListSongsActivity extends AppCompatActivity {
             initAddSongs(mSongList, "את חסרה לי", at_hasera_li, "אין יותר מועדונים", ein_yoter_moadonim,
                     "עיניים", einaim, "כפיות", kapiyot, "כשנגמרת הסופה", kshenigmeret_hasufa);
         } else if (song_data.equals("8")) {
-            biography.setText("איתי לוי נולד ב25 בינואר 1988. \n" +
-                    "איתי לוי נולד בגן יבנה וגדל בשכונת שעריים שברחובות. כשהיה בן 16, אביו נפטר מסרטן הריאות. \n" +
-                    "אמו לקתה בארבעה אירועים מוחיים, שהותירו אותה מאז בעלת מוגבלות סיעודית.\n" +
-                    "את שירותו בצה\"ל עשה כעובד רס\"ר בבית הספר לצניחה.\n");
+            biography.setText("עדן חסון נולד ב-1994 בפרדס חנה לאסתר, סייעת לגננת, וליורם, נהג משאית. גדל במשפחה דתית. בתקופת שירותו הצבאי שירת בבסיס חיל האוויר במצפה רמון, שם היה חלק מכיתת כוננות. את דרכו המוזיקלית החל בכתיבה ובהלחנה של שירים לזמרים כמו פאר טסי, עדן בן זקן ואיתי לוי.");
             initAddSongs(mSongList, "את חסרה לי", at_hasera_li, "אין יותר מועדונים", ein_yoter_moadonim,
                     "עיניים", einaim, "כפיות", kapiyot, "כשנגמרת הסופה", kshenigmeret_hasufa);
         } else if (song_data.equals("9")) {
