@@ -7,8 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -27,7 +30,8 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
     class CustomViewHolder extends RecyclerView.ViewHolder {
 
         private View mView;
-        private TextView songName;
+        private TextView songName, singerName;
+        private ImageView image;
         private LinearLayout linearLayout1;
 
         CustomViewHolder(View itemView) {
@@ -35,7 +39,9 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
 
             mView = itemView;
 
+            singerName = mView.findViewById(R.id.singerName);
             songName = mView.findViewById(R.id.songName);
+            image = mView.findViewById(R.id.image);
             linearLayout1 = mView.findViewById(R.id.linear1);
         }
     }
@@ -50,7 +56,9 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
         final SongModel current = dataList.get(position);
-        holder.songName.setText(String.valueOf(current.getSongName()));
+        holder.songName.setText(current.getSongName());
+        holder.singerName.setText(current.getSingerName());
+        Glide.with(context).load(current.getSongImage()).into(holder.image);
 
         holder.linearLayout1.setOnClickListener(new View.OnClickListener() {
             @Override

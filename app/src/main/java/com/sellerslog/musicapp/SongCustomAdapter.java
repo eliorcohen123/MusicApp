@@ -9,8 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -30,7 +33,8 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
     class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
 
         private View mView;
-        private TextView songName;
+        private TextView songName, singerName, duration;
+        private ImageView image, imagePlay;
         private LinearLayout linearLayout1;
 
         CustomViewHolder(View itemView) {
@@ -38,7 +42,11 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
 
             mView = itemView;
 
+            singerName = mView.findViewById(R.id.singerName);
             songName = mView.findViewById(R.id.songName);
+            duration = mView.findViewById(R.id.duration);
+            image = mView.findViewById(R.id.image);
+            imagePlay = mView.findViewById(R.id.imagePlay);
             linearLayout1 = mView.findViewById(R.id.linear1);
 
             mView.setOnCreateContextMenuListener(this);
@@ -59,7 +67,7 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
                 switch (item.getItemId()) {
                     case 1:
                         songDBHelper = new SongDBHelper(context);
-                        songDBHelper.addSong(String.valueOf(current.getSongName()));
+                        songDBHelper.addSong(current.getSingerName(), current.getSongName(), current.getSongImage());
 
                         stopMusic();
 
@@ -75,20 +83,34 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.song_item_row, parent, false);
+        View view = layoutInflater.inflate(R.layout.song_item_row_play, parent, false);
         return new CustomViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(CustomViewHolder holder, final int position) {
+    public void onBindViewHolder(final CustomViewHolder holder, final int position) {
         final SongModel current = dataList.get(position);
         holder.songName.setText(current.getSongName());
+        holder.singerName.setText(current.getSingerName());
+        Glide.with(context).load(current.getSongImage()).into(holder.image);
+
+        int duration = current.getPlaySong().getDuration();
+        int seconds = (int) (duration / 1000) % 60;
+        int minutes = (int) ((duration / (1000 * 60)) % 60);
+        holder.duration.setText(minutes + ":" + seconds);
+
+        holder.imagePlay.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_play_arrow_white_24dp));
 
         holder.linearLayout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stopMusic();
-                current.getPlaySong().start();
+                if (current.getPlaySong().isPlaying()) {
+                    current.getPlaySong().pause();
+                    holder.imagePlay.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_play_arrow_white_24dp));
+                } else {
+                    current.getPlaySong().start();
+                    holder.imagePlay.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_stop_white_24dp));
+                }
             }
         });
 
