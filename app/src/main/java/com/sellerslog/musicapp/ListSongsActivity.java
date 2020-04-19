@@ -194,4 +194,33 @@ public class ListSongsActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
     }
 
+    private void stopMusic() {
+        for (int i = 0; i < mSongList.size(); i++) {
+            if (mSongList.get(i).getPlaySong().isPlaying()) {
+                mSongList.get(i).getPlaySong().pause();
+            }
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        stopMusic();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        stopMusic();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        stopMusic();
+    }
+
 }

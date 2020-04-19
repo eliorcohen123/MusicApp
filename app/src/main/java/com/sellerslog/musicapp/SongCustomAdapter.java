@@ -60,6 +60,9 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
                     case 1:
                         songDBHelper = new SongDBHelper(context);
                         songDBHelper.addSong(String.valueOf(current.getSongName()));
+
+                        stopMusic();
+
                         Intent intent = new Intent(context, FavoritesActivity.class);
                         context.startActivity(intent);
                         break;
@@ -84,11 +87,7 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
         holder.linearLayout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i = 0; i < 5; i++) {
-                    if (dataList.get(i).getPlaySong().isPlaying()) {
-                        dataList.get(i).getPlaySong().pause();
-                    }
-                }
+                stopMusic();
                 current.getPlaySong().start();
             }
         });
@@ -105,6 +104,14 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
         AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(1500);
         view.startAnimation(anim);
+    }
+
+    private void stopMusic() {
+        for (int i = 0; i < dataList.size(); i++) {
+            if (dataList.get(i).getPlaySong().isPlaying()) {
+                dataList.get(i).getPlaySong().pause();
+            }
+        }
     }
 
 }
