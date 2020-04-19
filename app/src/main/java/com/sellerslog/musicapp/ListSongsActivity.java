@@ -19,6 +19,7 @@ public class ListSongsActivity extends AppCompatActivity {
     private MediaPlayer hozer_habaita, im_rak_haiit_yodaat, mikan_vead_haneztah, omed_kan_levadi, shavui_laahava,
             hamahshavot_horgot_oti, hasheket_shel_shabbat, holehet_yehefa, lakaht_et_hamaftehot, toda_lah,
             hagoral_haze, mabul, mazal_moznaim, sam_tabaat_aleiha, terminal3,
+            ahi, erev_tov, esh, kama_ahava, rak_shelah,
             at_hasera_li, ein_yoter_moadonim, einaim, kapiyot, kshenigmeret_hasufa;
     private String song_data;
     private TextView biography;
@@ -62,6 +63,13 @@ public class ListSongsActivity extends AppCompatActivity {
         sam_tabaat_aleiha = MediaPlayer.create(ListSongsActivity.this, R.raw.sam_tabaat_aleiha);
         terminal3 = MediaPlayer.create(ListSongsActivity.this, R.raw.terminal3);
 
+        // ליאור נרקיס
+        ahi = MediaPlayer.create(ListSongsActivity.this, R.raw.ahi);
+        erev_tov = MediaPlayer.create(ListSongsActivity.this, R.raw.erev_tov);
+        esh = MediaPlayer.create(ListSongsActivity.this, R.raw.esh);
+        kama_ahava = MediaPlayer.create(ListSongsActivity.this, R.raw.kama_ahava);
+        rak_shelah = MediaPlayer.create(ListSongsActivity.this, R.raw.rak_shelah);
+
         // עדן חסון
         at_hasera_li = MediaPlayer.create(ListSongsActivity.this, R.raw.at_hasera_li);
         ein_yoter_moadonim = MediaPlayer.create(ListSongsActivity.this, R.raw.ein_yoter_moadonim);
@@ -93,8 +101,8 @@ public class ListSongsActivity extends AppCompatActivity {
                     "ליאור נרקיס נולד בחולון כבן זקונים לדוד וחנה נרקיס. \n" +
                     "נרקיס החל לשיר בגיל 16. בשנת 1994 הוציא את אלבומו הראשון, \"תפילת חיי\", שהיה אלבום עם לחנים טורקיים, וכלל בעיקר שירים בסגנון טורקי. \n" +
                     "מתוך האלבום התבלט השיר המצליח שהיה להיט גדול באותה תקופה, \"כמו פרפר\".\n");
-            initAddSongs(mSongList, "את חסרה לי", at_hasera_li, "אין יותר מועדונים", ein_yoter_moadonim,
-                    "עיניים", einaim, "כפיות", kapiyot, "כשנגמרת הסופה", kshenigmeret_hasufa);
+            initAddSongs(mSongList, "אחי", ahi, "ערב טוב", erev_tov,
+                    "אש", esh, "כמה אהבה", kama_ahava, "רק שלך", rak_shelah);
         } else if (song_data.equals("5")) {
             biography.setText("פרץ נולד ב10 במאי 1983 וגדל בטבריה. \n" +
                     "עוד בילדותו החל לשיר כפייטן בבית הכנסת \"יעקב גז\" בטבריה, הסמוך לבית הוריו. הוא התגייס לצה\"ל בנובמבר 2001 לחיל החימוש ולאחר מכן התקבל ללהקה צבאית. כאשר עלה לשיר את \"שיר למעלות\" בטקס יום הזיכרון לחללי מערכות ישראל שנערך בבסיסו, קיבל משובים חיוביים, וקצין החינוך סייע בידו לגשת לבחינות הקבלה ללהקה צבאית. ביולי 2002 הוא עבר את בחינות הקבלה בהצלחה והתקבל לצוות הווי פיקוד צפון, ובמקביל החל לעבוד על הפקת אלבום משלו.\n");
