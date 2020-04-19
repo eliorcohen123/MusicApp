@@ -18,6 +18,7 @@ public class ListSongsActivity extends AppCompatActivity {
     private ItemDecoration itemDecoration;
     private MediaPlayer hozer_habaita, im_rak_haiit_yodaat, mikan_vead_haneztah, omed_kan_levadi, shavui_laahava,
             hamahshavot_horgot_oti, hasheket_shel_shabbat, holehet_yehefa, lakaht_et_hamaftehot, toda_lah,
+            hagoral_haze, mabul, mazal_moznaim, sam_tabaat_aleiha, terminal3,
             at_hasera_li, ein_yoter_moadonim, einaim, kapiyot, kshenigmeret_hasufa;
     private String song_data;
     private TextView biography;
@@ -54,6 +55,13 @@ public class ListSongsActivity extends AppCompatActivity {
         lakaht_et_hamaftehot = MediaPlayer.create(ListSongsActivity.this, R.raw.lakaht_et_hamaftehot);
         toda_lah = MediaPlayer.create(ListSongsActivity.this, R.raw.toda_lah);
 
+        // דודו אהרון
+        hagoral_haze = MediaPlayer.create(ListSongsActivity.this, R.raw.hagoral_haze);
+        mabul = MediaPlayer.create(ListSongsActivity.this, R.raw.mabul);
+        mazal_moznaim = MediaPlayer.create(ListSongsActivity.this, R.raw.mazal_moznaim);
+        sam_tabaat_aleiha = MediaPlayer.create(ListSongsActivity.this, R.raw.sam_tabaat_aleiha);
+        terminal3 = MediaPlayer.create(ListSongsActivity.this, R.raw.terminal3);
+
         // עדן חסון
         at_hasera_li = MediaPlayer.create(ListSongsActivity.this, R.raw.at_hasera_li);
         ein_yoter_moadonim = MediaPlayer.create(ListSongsActivity.this, R.raw.ein_yoter_moadonim);
@@ -77,8 +85,8 @@ public class ListSongsActivity extends AppCompatActivity {
         } else if (song_data.equals("3")) {
             biography.setText("דודו אהרון נולד ב-23 בדצמבר 1984 הוא זמר-יוצר ישראלי.\n" +
                     "אהרון נחשב לאחד מן הזמרים הבולטים בישראל במוזיקה המזרחית החל מהעשור הראשון של המאה ה-21. הוא מוערך הן כזמר והן בזכות השירים שהוא כותב ומלחין לזמרים אחרים הנמנים עם ז'אנר המוזיקה הים-תיכונית. הוא הוציא את אלבומו הראשון \"אהבה ראשונה\" בשנת 2007, התפרסם במהרה וצבר קהל מעריצים גדול.\n");
-            initAddSongs(mSongList, "את חסרה לי", at_hasera_li, "אין יותר מועדונים", ein_yoter_moadonim,
-                    "עיניים", einaim, "כפיות", kapiyot, "כשנגמרת הסופה", kshenigmeret_hasufa);
+            initAddSongs(mSongList, "הגורל הזה", hagoral_haze, "מבול", mabul,
+                    "מזל מאזניים", mazal_moznaim, "שם טבעת עליה", sam_tabaat_aleiha, "טרמינל 3", terminal3);
         } else if (song_data.equals("4")) {
             biography.setText("ליאור ואנונו נרקיס נולד ב-8 בנובמבר 1976 הוא זמר ישראלי.\n" +
                     "בנובמבר 2009 נשא נרקיס לאישה את ספיר ואנונו, הצעירה ממנו ב-11 שנה. לזוג שני בנים ובת. הם מתגוררים בסביון.\n" +
