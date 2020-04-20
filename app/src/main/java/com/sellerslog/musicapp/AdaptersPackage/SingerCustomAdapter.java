@@ -1,4 +1,4 @@
-package com.sellerslog.musicapp;
+package com.sellerslog.musicapp.AdaptersPackage;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
+import com.sellerslog.musicapp.ClassesPackage.ListSongsActivity;
+import com.sellerslog.musicapp.ModelsPackage.SongModel;
+import com.sellerslog.musicapp.R;
 
 import java.util.List;
 

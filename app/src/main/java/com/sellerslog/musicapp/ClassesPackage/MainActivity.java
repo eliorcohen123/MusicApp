@@ -1,22 +1,19 @@
-package com.sellerslog.musicapp;
+package com.sellerslog.musicapp.ClassesPackage;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.PorterDuff;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.sellerslog.musicapp.OthersPackage.ItemDecoration;
+import com.sellerslog.musicapp.R;
+import com.sellerslog.musicapp.AdaptersPackage.SingerCustomAdapter;
+import com.sellerslog.musicapp.ModelsPackage.SongModel;
 
 import java.util.ArrayList;
 

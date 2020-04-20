@@ -1,4 +1,4 @@
-package com.sellerslog.musicapp;
+package com.sellerslog.musicapp.OthersPackage;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,8 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.media.MediaPlayer;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.sellerslog.musicapp.ModelsPackage.SongModel;
 
 import java.util.ArrayList;
 
@@ -34,7 +36,7 @@ public class SongDBHelper extends SQLiteOpenHelper {
                 SINGER_NAME + " TEXT, " +
                 SONG_NAME + " TEXT, " +
                 SONG_IMAGE + " TEXT, " +
-                SONG_TIME + " TEXT " +")";
+                SONG_TIME + " TEXT " + ")";
         try {
             db.execSQL(CREATE_TABLE);
         } catch (SQLiteException ex) {
@@ -52,17 +54,39 @@ public class SongDBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(SINGER_NAME, singerName);
-        contentValues.put(SONG_NAME, songName);
-        contentValues.put(SONG_IMAGE, songImage);
-        contentValues.put(SONG_TIME, timeSong);
+        Cursor cursor1;
+        cursor1 = db.rawQuery("SELECT * FROM " + SONG_TABLE_NAME + " WHERE " + SONG_NAME + "=?", new String[]{songName});
+        if (cursor1.getCount() > 0) {
+            Toast.makeText(ctx, "השיר נוסף כבר למועדפים", Toast.LENGTH_LONG).show();
+        } else {
+            contentValues.put(SINGER_NAME, singerName);
+            contentValues.put(SONG_NAME, songName);
+            contentValues.put(SONG_IMAGE, songImage);
+            contentValues.put(SONG_TIME, timeSong);
 
-        long id = db.insertOrThrow(SONG_TABLE_NAME, null, contentValues);
+            long id = db.insertOrThrow(SONG_TABLE_NAME, null, contentValues);
+            try {
+                Log.d("SongDBHelper", "insert new song with id: " + id +
+                        ", Name: " + songName);
+            } catch (SQLiteException ex) {
+                Log.e("SongDBHelper", ex.getMessage());
+            } finally {
+                db.close();
+            }
+        }
+        cursor1.close();
+    }
+
+    // Delete movies
+    public void deleteSong(SongModel song) {
+        SQLiteDatabase db = getWritableDatabase();
+
+        String[] ids = new String[1];
+        ids[0] = song.getId() + "";
         try {
-            Log.d("SongDBHelper", "insert new song with id: " + id +
-                    ", Name: " + songName);
-        } catch (SQLiteException ex) {
-            Log.e("SongDBHelper", ex.getMessage());
+            db.delete(SONG_TABLE_NAME, SONG_ID + " =? ", ids);
+        } catch (SQLiteException e) {
+            Log.e("SongDBHelper", e.getMessage());
         } finally {
             db.close();
         }

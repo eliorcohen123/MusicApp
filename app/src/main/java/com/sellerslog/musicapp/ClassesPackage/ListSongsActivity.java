@@ -1,12 +1,21 @@
-package com.sellerslog.musicapp;
+package com.sellerslog.musicapp.ClassesPackage;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.sellerslog.musicapp.OthersPackage.ItemDecoration;
+import com.sellerslog.musicapp.R;
+import com.sellerslog.musicapp.AdaptersPackage.SongCustomAdapter;
+import com.sellerslog.musicapp.ModelsPackage.SongModel;
 
 import java.util.ArrayList;
 
@@ -250,6 +259,26 @@ public class ListSongsActivity extends AppCompatActivity {
                 mSongList.get(i).getPlaySong().pause();
             }
         }
+    }
+
+    // Sets off the menu of activity_menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    // Options in the activity_menu
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.options:  // Mute all the sound in app
+                Intent intent = new Intent(ListSongsActivity.this, FavoritesActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

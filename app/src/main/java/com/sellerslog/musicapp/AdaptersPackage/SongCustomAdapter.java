@@ -1,4 +1,4 @@
-package com.sellerslog.musicapp;
+package com.sellerslog.musicapp.AdaptersPackage;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.sellerslog.musicapp.ClassesPackage.FavoritesActivity;
+import com.sellerslog.musicapp.ModelsPackage.SongModel;
+import com.sellerslog.musicapp.R;
+import com.sellerslog.musicapp.OthersPackage.SongDBHelper;
 
 import java.util.List;
 
@@ -67,7 +71,20 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
         int duration = current.getPlaySong().getDuration();
         final int seconds = (duration / 1000) % 60;
         final int minutes = ((duration / (1000 * 60)) % 60);
-        holder.duration.setText(minutes + ":" + seconds);
+        final String secondsFinal;
+        final String minutesFinal;
+        if (seconds < 10) {
+            secondsFinal = "0" + seconds;
+        } else {
+            secondsFinal = String.valueOf(seconds);
+        }
+        if (minutes < 10) {
+            minutesFinal = "0" + minutes;
+        } else {
+            minutesFinal = String.valueOf(minutes);
+        }
+
+        holder.duration.setText(minutesFinal + ":" + secondsFinal);
 
         holder.imagePlay.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_play_arrow_white_24dp));
 
@@ -88,12 +105,7 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
             @Override
             public void onClick(View v) {
                 songDBHelper = new SongDBHelper(context);
-                songDBHelper.addSong(current.getSingerName(), current.getSongName(), current.getSongImage(), minutes + ":" + seconds);
-
-                stopMusic();
-
-                Intent intent = new Intent(context, FavoritesActivity.class);
-                context.startActivity(intent);
+                songDBHelper.addSong(current.getSingerName(), current.getSongName(), current.getSongImage(), minutesFinal + ":" + secondsFinal);
             }
         });
 
@@ -109,14 +121,6 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
         AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(1500);
         view.startAnimation(anim);
-    }
-
-    private void stopMusic() {
-        for (int i = 0; i < dataList.size(); i++) {
-            if (dataList.get(i).getPlaySong().isPlaying()) {
-                dataList.get(i).getPlaySong().pause();
-            }
-        }
     }
 
 }

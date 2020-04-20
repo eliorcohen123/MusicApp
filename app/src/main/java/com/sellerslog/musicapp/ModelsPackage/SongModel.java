@@ -1,4 +1,4 @@
-package com.sellerslog.musicapp;
+package com.sellerslog.musicapp.ModelsPackage;
 
 import android.media.MediaPlayer;
 
@@ -13,21 +13,21 @@ public class SongModel implements Serializable {
     private String songTime;
     private MediaPlayer playSong;
 
-    SongModel(String singerName, String songName, String songImage, MediaPlayer playSong) {
+    public SongModel(String singerName, String songName, String songImage, MediaPlayer playSong) {
         this.singerName = singerName;
         this.songName = songName;
         this.songImage = songImage;
         this.playSong = playSong;
     }
 
-    SongModel(String singerName, String songName, String songImage, String songTime) {
+    public SongModel(String singerName, String songName, String songImage, String songTime) {
         this.singerName = singerName;
         this.songName = songName;
         this.songImage = songImage;
         this.songTime = songTime;
     }
 
-    SongModel(int id, String songImage) {
+    public SongModel(int id, String songImage) {
         this.id = id;
         this.songImage = songImage;
     }

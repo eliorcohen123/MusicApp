@@ -1,4 +1,4 @@
-package com.sellerslog.musicapp;
+package com.sellerslog.musicapp.AdaptersPackage;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.sellerslog.musicapp.ModelsPackage.SongModel;
+import com.sellerslog.musicapp.OthersPackage.SongDBHelper;
+import com.sellerslog.musicapp.R;
 
 import java.util.List;
 
@@ -21,17 +24,20 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
 
     private Context context;
     private List<SongModel> dataList;
+    private SongDBHelper songDBHelper;
+    private FavoritesCustomAdapter favoritesCustomAdapter;
 
     public FavoritesCustomAdapter(Context context, List<SongModel> dataList) {
         this.context = context;
         this.dataList = dataList;
+        this.favoritesCustomAdapter = this;
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder {
 
         private View mView;
         private TextView songName, singerName, duration;
-        private ImageView image;
+        private ImageView image, imageDel, imageYouTube;
         private LinearLayout linearLayout1;
 
         CustomViewHolder(View itemView) {
@@ -43,6 +49,8 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
             songName = mView.findViewById(R.id.songName);
             duration = mView.findViewById(R.id.duration);
             image = mView.findViewById(R.id.image);
+            imageDel = mView.findViewById(R.id.imageDel);
+            imageYouTube = mView.findViewById(R.id.imageYouTube);
             linearLayout1 = mView.findViewById(R.id.linear1);
         }
     }
@@ -55,14 +63,14 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
     }
 
     @Override
-    public void onBindViewHolder(CustomViewHolder holder, int position) {
+    public void onBindViewHolder(CustomViewHolder holder, final int position) {
         final SongModel current = dataList.get(position);
         holder.songName.setText(current.getSongName());
         holder.singerName.setText(current.getSingerName());
         holder.duration.setText(current.getSongTime());
         Glide.with(context).load(current.getSongImage()).into(holder.image);
 
-        holder.linearLayout1.setOnClickListener(new View.OnClickListener() {
+        holder.imageYouTube.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -71,6 +79,17 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.google.android.youtube"));
                     context.startActivity(intent);
                 }
+            }
+        });
+
+        holder.imageDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                songDBHelper = new SongDBHelper(context);
+                songDBHelper.deleteSong(current);
+
+                dataList.remove(position);
+                favoritesCustomAdapter.notifyItemRemoved(position);
             }
         });
 

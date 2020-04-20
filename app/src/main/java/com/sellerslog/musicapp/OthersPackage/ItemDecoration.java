@@ -1,4 +1,4 @@
-package com.sellerslog.musicapp;
+package com.sellerslog.musicapp.OthersPackage;
 
 import android.graphics.Rect;
 import android.view.View;
