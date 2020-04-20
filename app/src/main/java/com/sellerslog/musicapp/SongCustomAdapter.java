@@ -65,8 +65,8 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
         Glide.with(context).load(current.getSongImage()).into(holder.image);
 
         int duration = current.getPlaySong().getDuration();
-        int seconds = (int) (duration / 1000) % 60;
-        int minutes = (int) ((duration / (1000 * 60)) % 60);
+        final int seconds = (duration / 1000) % 60;
+        final int minutes = ((duration / (1000 * 60)) % 60);
         holder.duration.setText(minutes + ":" + seconds);
 
         holder.imagePlay.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_play_arrow_white_24dp));
@@ -88,7 +88,7 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
             @Override
             public void onClick(View v) {
                 songDBHelper = new SongDBHelper(context);
-                songDBHelper.addSong(current.getSingerName(), current.getSongName(), current.getSongImage());
+                songDBHelper.addSong(current.getSingerName(), current.getSongName(), current.getSongImage(), minutes + ":" + seconds);
 
                 stopMusic();
 

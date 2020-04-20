@@ -9,10 +9,12 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
+        android:background="@drawable/timg"
+        android:gravity="center"
         android:text="רשימת שירים"
         android:textColor="@color/colorWhite"
         android:textSize="40sp" />
@@ -20,7 +22,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/timg">
 
         <LinearLayout
             android:layout_width="match_parent"

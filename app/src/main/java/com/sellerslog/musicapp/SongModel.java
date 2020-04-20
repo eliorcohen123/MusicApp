@@ -10,6 +10,7 @@ public class SongModel implements Serializable {
     private String songName;
     private String songImage;
     private String singerName;
+    private String songTime;
     private MediaPlayer playSong;
 
     SongModel(String singerName, String songName, String songImage, MediaPlayer playSong) {
@@ -19,10 +20,11 @@ public class SongModel implements Serializable {
         this.playSong = playSong;
     }
 
-    SongModel(String singerName, String songName, String songImage) {
+    SongModel(String singerName, String songName, String songImage, String songTime) {
         this.singerName = singerName;
         this.songName = songName;
         this.songImage = songImage;
+        this.songTime = songTime;
     }
 
     SongModel(int id, String songImage) {
@@ -68,6 +70,14 @@ public class SongModel implements Serializable {
 
     public void setSingerName(String singerName) {
         this.singerName = singerName;
+    }
+
+    public String getSongTime() {
+        return songTime;
+    }
+
+    public void setSongTime(String songTime) {
+        this.songTime = songTime;
     }
 
 }

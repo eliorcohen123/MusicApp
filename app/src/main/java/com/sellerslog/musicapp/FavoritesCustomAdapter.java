@@ -30,7 +30,7 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
     class CustomViewHolder extends RecyclerView.ViewHolder {
 
         private View mView;
-        private TextView songName, singerName;
+        private TextView songName, singerName, duration;
         private ImageView image;
         private LinearLayout linearLayout1;
 
@@ -41,6 +41,7 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
 
             singerName = mView.findViewById(R.id.singerName);
             songName = mView.findViewById(R.id.songName);
+            duration = mView.findViewById(R.id.duration);
             image = mView.findViewById(R.id.image);
             linearLayout1 = mView.findViewById(R.id.linear1);
         }
@@ -58,6 +59,7 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
         final SongModel current = dataList.get(position);
         holder.songName.setText(current.getSongName());
         holder.singerName.setText(current.getSingerName());
+        holder.duration.setText(current.getSongTime());
         Glide.with(context).load(current.getSongImage()).into(holder.image);
 
         holder.linearLayout1.setOnClickListener(new View.OnClickListener() {

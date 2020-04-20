@@ -17,6 +17,7 @@ public class SongDBHelper extends SQLiteOpenHelper {
     private static final String SONG_ID = "ID";
     private static final String SINGER_NAME = "SINGER_NAME";
     private static final String SONG_NAME = "SONG_NAME";
+    private static final String SONG_TIME = "SONG_TIME";
     private static final String SONG_IMAGE = "SONG_IMAGE";
     private Context ctx;
 
@@ -32,7 +33,8 @@ public class SongDBHelper extends SQLiteOpenHelper {
                 SONG_ID + " INTEGER PRIMARY KEY, " +
                 SINGER_NAME + " TEXT, " +
                 SONG_NAME + " TEXT, " +
-                SONG_IMAGE + " TEXT " + ")";
+                SONG_IMAGE + " TEXT, " +
+                SONG_TIME + " TEXT " +")";
         try {
             db.execSQL(CREATE_TABLE);
         } catch (SQLiteException ex) {
@@ -46,13 +48,14 @@ public class SongDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addSong(String singerName, String songName, String songImage) {
+    public void addSong(String singerName, String songName, String songImage, String timeSong) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(SINGER_NAME, singerName);
         contentValues.put(SONG_NAME, songName);
         contentValues.put(SONG_IMAGE, songImage);
+        contentValues.put(SONG_TIME, timeSong);
 
         long id = db.insertOrThrow(SONG_TABLE_NAME, null, contentValues);
         try {
@@ -75,7 +78,8 @@ public class SongDBHelper extends SQLiteOpenHelper {
             String singerName = cursor.getString(1);
             String songName = cursor.getString(2);
             String songImage = cursor.getString(3);
-            SongModel songModel = new SongModel(singerName, songName, songImage);
+            String songTime = cursor.getString(4);
+            SongModel songModel = new SongModel(singerName, songName, songImage, songTime);
             songModel.setId(id);
             songModels.add(songModel);
         }
