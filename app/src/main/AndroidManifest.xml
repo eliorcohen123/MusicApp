@@ -11,15 +11,21 @@
         android:roundIcon="@drawable/image_music"
         android:supportsRtl="true"
         android:theme="@style/MyAppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FavoritesActivity" />
-        <activity android:name=".ListSongsActivity" />
+        <activity
+            android:name=".FavoritesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ListSongsActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

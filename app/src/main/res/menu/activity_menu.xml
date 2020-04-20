@@ -2,8 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/options"
         android:icon="@drawable/ic_dehaze_lightblue_24dp"
         android:title=""
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/options"
+                android:title="מועדפים" />
+        </menu>
+    </item>
 </menu>
