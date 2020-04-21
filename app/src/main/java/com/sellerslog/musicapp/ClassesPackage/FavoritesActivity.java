@@ -84,7 +84,7 @@ public class FavoritesActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.options:  // Mute all the sound in app
+            case R.id.favorites:
                 Intent intent = new Intent(FavoritesActivity.this, FavoritesActivity.class);
                 startActivity(intent);
                 break;

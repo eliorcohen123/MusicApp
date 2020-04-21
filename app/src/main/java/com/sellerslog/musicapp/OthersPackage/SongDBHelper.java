@@ -23,12 +23,14 @@ public class SongDBHelper extends SQLiteOpenHelper {
     private static final String SONG_IMAGE = "SONG_IMAGE";
     private Context ctx;
 
+    // אתחול הדאטהבייס על ידי בנאי
     public SongDBHelper(Context context) {
         super(context, SONG_TABLE_NAME, null, 1);
 
         this.ctx = context;
     }
 
+    // יצירת הדאטהבייס
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE = "CREATE TABLE " + SONG_TABLE_NAME + "(" +
@@ -50,6 +52,7 @@ public class SongDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    // הוספת שיר לדאטהבייס
     public void addSong(String singerName, String songName, String songImage, String timeSong) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -77,7 +80,7 @@ public class SongDBHelper extends SQLiteOpenHelper {
         cursor1.close();
     }
 
-    // Delete movies
+    // מחיקת שיר בודד מהדאטהבייס
     public void deleteSong(SongModel song) {
         SQLiteDatabase db = getWritableDatabase();
 
@@ -92,6 +95,7 @@ public class SongDBHelper extends SQLiteOpenHelper {
         }
     }
 
+    // קבלת כל השירים מהדאטהבייס
     public ArrayList<SongModel> getAllSongs() {
         ArrayList<SongModel> songModels = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();

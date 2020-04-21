@@ -50,7 +50,6 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
             imagePlay = mView.findViewById(R.id.imagePlay);
             imageAdd = mView.findViewById(R.id.imageAdd);
             linearLayout1 = mView.findViewById(R.id.linear1);
-
         }
     }
 
