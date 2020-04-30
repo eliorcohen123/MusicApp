@@ -261,7 +261,6 @@ public class ListSongsActivity extends AppCompatActivity {
         }
     }
 
-    // Sets off the menu of activity_menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -269,7 +268,6 @@ public class ListSongsActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    // Options in the activity_menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

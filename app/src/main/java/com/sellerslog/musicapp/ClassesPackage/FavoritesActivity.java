@@ -53,9 +53,7 @@ public class FavoritesActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
     }
 
-    // This method is to fetch all user records from SQLite
     private void getData() {
-        // AsyncTask is used that SQLite operation not blocks the UI Thread.
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
@@ -72,7 +70,6 @@ public class FavoritesActivity extends AppCompatActivity {
         }.execute();
     }
 
-    // Sets off the menu of activity_menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -80,7 +77,6 @@ public class FavoritesActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    // Options in the activity_menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
