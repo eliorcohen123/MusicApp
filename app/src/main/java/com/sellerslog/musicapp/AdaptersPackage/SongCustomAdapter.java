@@ -16,12 +16,14 @@ import com.sellerslog.musicapp.OthersPackage.SongDBHelper;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.CustomViewHolder> {
 
-    private Context context;
-    private List<SongModel> dataList;
+    private final Context context;
+    private final List<SongModel> dataList;
     private SongDBHelper songDBHelper;
 
     public SongCustomAdapter(Context context, List<SongModel> dataList) {
@@ -29,12 +31,11 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
         this.dataList = dataList;
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder {
+    static class CustomViewHolder extends RecyclerView.ViewHolder {
 
-        private View mView;
-        private TextView songName, singerName, duration;
-        private ImageView image, imagePlay, imageAdd;
-        private LinearLayout linearLayout1;
+        private final View mView;
+        private final TextView songName, singerName, duration;
+        private final ImageView image, imagePlay, imageAdd;
 
         CustomViewHolder(View itemView) {
             super(itemView);
@@ -47,10 +48,10 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
             image = mView.findViewById(R.id.image);
             imagePlay = mView.findViewById(R.id.imagePlay);
             imageAdd = mView.findViewById(R.id.imageAdd);
-            linearLayout1 = mView.findViewById(R.id.linear1);
         }
     }
 
+    @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
@@ -83,17 +84,17 @@ public class SongCustomAdapter extends RecyclerView.Adapter<SongCustomAdapter.Cu
 
         holder.duration.setText(minutesFinal + ":" + secondsFinal);
 
-        holder.imagePlay.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_play_arrow_white_24dp));
+        holder.imagePlay.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_play_arrow_white_24dp));
 
         holder.imagePlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (current.getPlaySong().isPlaying()) {
                     current.getPlaySong().pause();
-                    holder.imagePlay.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_play_arrow_white_24dp));
+                    holder.imagePlay.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_play_arrow_white_24dp));
                 } else {
                     current.getPlaySong().start();
-                    holder.imagePlay.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_stop_white_24dp));
+                    holder.imagePlay.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_stop_white_24dp));
                 }
             }
         });

@@ -18,14 +18,15 @@ import com.sellerslog.musicapp.R;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustomAdapter.CustomViewHolder> {
 
-    private Context context;
-    private List<SongModel> dataList;
+    private final Context context;
+    private final List<SongModel> dataList;
     private SongDBHelper songDBHelper;
-    private FavoritesCustomAdapter favoritesCustomAdapter;
+    private final FavoritesCustomAdapter favoritesCustomAdapter;
 
     public FavoritesCustomAdapter(Context context, List<SongModel> dataList) {
         this.context = context;
@@ -33,12 +34,11 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
         this.favoritesCustomAdapter = this;
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder {
+    static class CustomViewHolder extends RecyclerView.ViewHolder {
 
-        private View mView;
-        private TextView songName, singerName, duration;
-        private ImageView image, imageDel, imageYouTube;
-        private LinearLayout linearLayout1;
+        private final View mView;
+        private final TextView songName, singerName, duration;
+        private final ImageView image, imageDel, imageYouTube;
 
         CustomViewHolder(View itemView) {
             super(itemView);
@@ -51,10 +51,10 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
             image = mView.findViewById(R.id.image);
             imageDel = mView.findViewById(R.id.imageDel);
             imageYouTube = mView.findViewById(R.id.imageYouTube);
-            linearLayout1 = mView.findViewById(R.id.linear1);
         }
     }
 
+    @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());

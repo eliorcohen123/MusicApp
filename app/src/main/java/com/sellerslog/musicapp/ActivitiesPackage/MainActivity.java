@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private String urlEdenHason = "https://www.zappa-club.co.il/download/showPic/show_pic3973_img.jpg";
     private String urlOmerAdam = "https://medias.timeout.co.il/www/uploads/2019/06/%D7%A2%D7%95%D7%9E%D7%A8-%D7%90%D7%93%D7%9D-%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%A8%D7%9E%D7%99-%D7%96%D7%A8%D7%A0%D7%92%D7%A8-1-Large-600x600-1559827037.jpg";
     private String urlSaritHadad = "https://is5-ssl.mzstatic.com/image/thumb/Features71/v4/33/5e/65/335e65b3-7dae-00db-7124-c1ed85af80b7/mzl.xmxwdxpv.jpg/800x800bb.jpeg";
-    private ArrayList<SongModel> mSongList = new ArrayList<>();
+    private final ArrayList<SongModel> mSongList = new ArrayList<>();
     private SingerCustomAdapter mAdapter;
     private RecyclerView recyclerView;
     private ItemDecoration itemDecoration;

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class FavoritesActivity extends AppCompatActivity {
 
-    private ArrayList<SongModel> mSongList = new ArrayList<>();
+    private final ArrayList<SongModel> mSongList = new ArrayList<>();
     private FavoritesCustomAdapter mAdapter;
     private RecyclerView recyclerView;
     private ItemDecoration itemDecoration;

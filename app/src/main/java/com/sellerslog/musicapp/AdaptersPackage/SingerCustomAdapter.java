@@ -16,23 +16,24 @@ import com.sellerslog.musicapp.R;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class SingerCustomAdapter extends RecyclerView.Adapter<SingerCustomAdapter.CustomViewHolder> {
 
-    private Context context;
-    private List<SongModel> dataList;
+    private final Context context;
+    private final List<SongModel> dataList;
 
     public SingerCustomAdapter(Context context, List<SongModel> dataList) {
         this.context = context;
         this.dataList = dataList;
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder {
+    static class CustomViewHolder extends RecyclerView.ViewHolder {
 
-        private View mView;
-        private ImageView image;
-        private LinearLayout linearLayout1;
+        private final View mView;
+        private final ImageView image;
+        private final LinearLayout linearLayout1;
 
         CustomViewHolder(View itemView) {
             super(itemView);
@@ -44,6 +45,7 @@ public class SingerCustomAdapter extends RecyclerView.Adapter<SingerCustomAdapte
         }
     }
 
+    @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());

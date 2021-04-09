@@ -21,7 +21,7 @@ public class SongDBHelper extends SQLiteOpenHelper {
     private static final String SONG_NAME = "SONG_NAME";
     private static final String SONG_TIME = "SONG_TIME";
     private static final String SONG_IMAGE = "SONG_IMAGE";
-    private Context ctx;
+    private final Context ctx;
 
     public SongDBHelper(Context context) {
         super(context, SONG_TABLE_NAME, null, 1);
@@ -74,6 +74,7 @@ public class SongDBHelper extends SQLiteOpenHelper {
                 db.close();
             }
         }
+
         cursor1.close();
     }
 
@@ -106,7 +107,9 @@ public class SongDBHelper extends SQLiteOpenHelper {
             songModel.setId(id);
             songModels.add(songModel);
         }
+
         cursor.close();
+
         return songModels;
     }
 
