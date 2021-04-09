@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/MyAppTheme">
         <activity
-            android:name=".ClassesPackage.MainActivity"
+            android:name=".ActivitiesPackage.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,10 +21,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ClassesPackage.FavoritesActivity"
+            android:name=".ActivitiesPackage.FavoritesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ClassesPackage.ListSongsActivity"
+            android:name=".ActivitiesPackage.ListSongsActivity"
             android:screenOrientation="portrait" />
     </application>
 

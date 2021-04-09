@@ -1,4 +1,4 @@
-package com.sellerslog.musicapp.ClassesPackage;
+package com.sellerslog.musicapp.ActivitiesPackage;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class ListSongsActivity extends AppCompatActivity {
 
-    private ArrayList<SongModel> mSongList = new ArrayList<>();
+    private final ArrayList<SongModel> mSongList = new ArrayList<>();
     private SongCustomAdapter mAdapter;
     private RecyclerView recyclerView;
     private ItemDecoration itemDecoration;
@@ -106,70 +106,70 @@ public class ListSongsActivity extends AppCompatActivity {
     }
 
     private void initSongs() {
-        // אייל גולן
+        // אEyal Golan
         hozer_habaita = MediaPlayer.create(ListSongsActivity.this, R.raw.hozer_habaita);
         im_rak_haiit_yodaat = MediaPlayer.create(ListSongsActivity.this, R.raw.im_rak_haiit_yodaat);
         mikan_vead_haneztah = MediaPlayer.create(ListSongsActivity.this, R.raw.mikan_vead_haneztah);
         omed_kan_levadi = MediaPlayer.create(ListSongsActivity.this, R.raw.omed_kan_levadi);
         shavui_laahava = MediaPlayer.create(ListSongsActivity.this, R.raw.shavui_laahava);
 
-        // איתי לוי
+        // Itay Levyא
         hamahshavot_horgot_oti = MediaPlayer.create(ListSongsActivity.this, R.raw.hamahshavot_horgot_oti);
         hasheket_shel_shabbat = MediaPlayer.create(ListSongsActivity.this, R.raw.hasheket_shel_shabbat);
         holehet_yehefa = MediaPlayer.create(ListSongsActivity.this, R.raw.holehet_yehefa);
         lakaht_et_hamaftehot = MediaPlayer.create(ListSongsActivity.this, R.raw.lakaht_et_hamaftehot);
         toda_lah = MediaPlayer.create(ListSongsActivity.this, R.raw.toda_lah);
 
-        // דודו אהרון
+        // Dudu Aharon
         hagoral_haze = MediaPlayer.create(ListSongsActivity.this, R.raw.hagoral_haze);
         mabul = MediaPlayer.create(ListSongsActivity.this, R.raw.mabul);
         mazal_moznaim = MediaPlayer.create(ListSongsActivity.this, R.raw.mazal_moznaim);
         sam_tabaat_aleiha = MediaPlayer.create(ListSongsActivity.this, R.raw.sam_tabaat_aleiha);
         terminal3 = MediaPlayer.create(ListSongsActivity.this, R.raw.terminal3);
 
-        // ליאור נרקיס
+        // Lior Vaanunu
         ahi = MediaPlayer.create(ListSongsActivity.this, R.raw.ahi);
         erev_tov = MediaPlayer.create(ListSongsActivity.this, R.raw.erev_tov);
         esh = MediaPlayer.create(ListSongsActivity.this, R.raw.esh);
         kama_ahava = MediaPlayer.create(ListSongsActivity.this, R.raw.kama_ahava);
         rak_shelah = MediaPlayer.create(ListSongsActivity.this, R.raw.rak_shelah);
 
-        // משה פרץ
+        // Moshe Perezt
         barcelona = MediaPlayer.create(ListSongsActivity.this, R.raw.barcelona);
         karamela = MediaPlayer.create(ListSongsActivity.this, R.raw.karamela);
         layla_besinay = MediaPlayer.create(ListSongsActivity.this, R.raw.layla_besinay);
         simanei_hazman = MediaPlayer.create(ListSongsActivity.this, R.raw.simanei_hazman);
         zikukim = MediaPlayer.create(ListSongsActivity.this, R.raw.zikukim);
 
-        // נסרין קדרי
+        // Nasrin Kadri
         albi_maak = MediaPlayer.create(ListSongsActivity.this, R.raw.albi_maak);
         lomedet_lalechet = MediaPlayer.create(ListSongsActivity.this, R.raw.lomedet_lalechet);
         loveshet_hiuch = MediaPlayer.create(ListSongsActivity.this, R.raw.loveshet_hiuch);
         tomru_lo = MediaPlayer.create(ListSongsActivity.this, R.raw.tomru_lo);
         yesh_li_otha = MediaPlayer.create(ListSongsActivity.this, R.raw.yesh_li_otha);
 
-        // עדן בן זקן
+        // Eden Ben Zaken
         egrof = MediaPlayer.create(ListSongsActivity.this, R.raw.egrof);
         gentleman = MediaPlayer.create(ListSongsActivity.this, R.raw.gentleman);
         haim_sheli = MediaPlayer.create(ListSongsActivity.this, R.raw.haim_sheli);
         hazman_shelanu = MediaPlayer.create(ListSongsActivity.this, R.raw.hazman_shelanu);
         kshetavo = MediaPlayer.create(ListSongsActivity.this, R.raw.kshetavo);
 
-        // עדן חסון
+        // Eden Hason
         at_hasera_li = MediaPlayer.create(ListSongsActivity.this, R.raw.at_hasera_li);
         ein_yoter_moadonim = MediaPlayer.create(ListSongsActivity.this, R.raw.ein_yoter_moadonim);
         einaim = MediaPlayer.create(ListSongsActivity.this, R.raw.einaim);
         kapiyot = MediaPlayer.create(ListSongsActivity.this, R.raw.kapiyot);
         kshenigmeret_hasufa = MediaPlayer.create(ListSongsActivity.this, R.raw.kshenigmeret_hasufa);
 
-        // עומר אדם
+        // Omer Adam
         aharei_kol_hashanim = MediaPlayer.create(ListSongsActivity.this, R.raw.aharei_kol_hashanim);
         katavti_alaih_shir = MediaPlayer.create(ListSongsActivity.this, R.raw.katavti_alaih_shir);
         maim_shkufim = MediaPlayer.create(ListSongsActivity.this, R.raw.maim_shkufim);
         shigra_mefoeret = MediaPlayer.create(ListSongsActivity.this, R.raw.shigra_mefoeret);
         titen_la_prahim = MediaPlayer.create(ListSongsActivity.this, R.raw.titen_la_prahim);
 
-        // שרית חדד
+        // Sarit Hadad
         ata_totah = MediaPlayer.create(ListSongsActivity.this, R.raw.ata_totah);
         hofshia = MediaPlayer.create(ListSongsActivity.this, R.raw.hofshia);
         lama_li = MediaPlayer.create(ListSongsActivity.this, R.raw.lama_li);

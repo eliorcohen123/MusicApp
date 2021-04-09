@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
-import com.sellerslog.musicapp.ClassesPackage.ListSongsActivity;
+import com.sellerslog.musicapp.ActivitiesPackage.ListSongsActivity;
 import com.sellerslog.musicapp.ModelsPackage.SongModel;
 import com.sellerslog.musicapp.R;
 

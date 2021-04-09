@@ -1,7 +1,6 @@
 package com.sellerslog.musicapp.AdaptersPackage;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.sellerslog.musicapp.ClassesPackage.FavoritesActivity;
 import com.sellerslog.musicapp.ModelsPackage.SongModel;
 import com.sellerslog.musicapp.R;
 import com.sellerslog.musicapp.OthersPackage.SongDBHelper;

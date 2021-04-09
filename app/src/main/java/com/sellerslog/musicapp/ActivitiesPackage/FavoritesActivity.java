@@ -1,4 +1,4 @@
-package com.sellerslog.musicapp.ClassesPackage;
+package com.sellerslog.musicapp.ActivitiesPackage;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
