@@ -74,7 +74,7 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
             @Override
             public void onClick(View v) {
                 try {
-                    FavoritesCustomAdapter.this.watchYoutubeVideo(current.getSongName());
+                    favoritesCustomAdapter.watchYoutubeVideo(current.getSongName());
                 } catch (Exception e) {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.google.android.youtube"));
                     context.startActivity(intent);
@@ -89,7 +89,8 @@ public class FavoritesCustomAdapter extends RecyclerView.Adapter<FavoritesCustom
                 songDBHelper.deleteSong(current);
 
                 dataList.remove(position);
-                favoritesCustomAdapter.notifyItemRemoved(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, dataList.size());
             }
         });
 
